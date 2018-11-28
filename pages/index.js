@@ -42,7 +42,7 @@ class CampaignIndex extends Component {
         />
       </a>
     </Link>
-    // {this.renderCampaigns()}
+    <h2>dvt {this.props.campaigns[0]}</h2>
 
     </div>
     </Layout>
