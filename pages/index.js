@@ -6,26 +6,27 @@ import { Link } from '../routes';
 
 class CampaignIndex extends Component {
   static async getInitialProps() {
+    console.log("getInitialProps ...");
     const campaigns = await factory.methods.getDeployedCampaigns().call();
 
     return { campaigns };
 }
 
-// renderCampaigns() {
-//   const items = this.props.campaigns.map(address => {
-//     return {
-//       header: address,
-//       description: (
-//         <Link route={`/campaigns/${address}`}>
-//           <a>View Campaign</a>
-//         </Link>
-//       ),
-//       fluid: true
-//     };
-//   });
-//
-//   return <Card.Group items={items} />;
-// }
+renderCampaigns() {
+  const items = this.props.campaigns.map(address => {
+    return {
+      header: address,
+      description: (
+        <Link route={`/campaigns/${address}`}>
+          <a>View Campaign</a>
+        </Link>
+      ),
+      fluid: true
+    };
+  });
+
+  return <Card.Group items={items} />;
+}
 
   render() {
     return (
@@ -42,7 +43,7 @@ class CampaignIndex extends Component {
         />
       </a>
     </Link>
-    <h2>dvt {this.props.campaigns[0]}</h2>
+    {this.renderCampaigns()}
 
     </div>
     </Layout>
