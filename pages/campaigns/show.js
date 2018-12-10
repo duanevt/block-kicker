@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, Grid, Button } from 'semantic-ui-react';
+import { Card, Grid, Button, Image } from 'semantic-ui-react';
 import Layout from '../../components/Layout';
 import Campaign from '../../ethereum/campaign';
 import web3 from '../../ethereum/web3';
@@ -75,7 +75,19 @@ class CampaignShow extends Component {
         <h3>Campaign Show</h3>
         <Grid>
           <Grid.Row>
-            <Grid.Column width={10}>{this.renderCards()}</Grid.Column>
+            <Grid.Column width={10}>
+              <Card fluid>
+                <Card.Content>
+                  <Image floated='left' size='mini' src='/static/grommet.jpeg' />
+                  <Card.Header>Sumatra</Card.Header>
+                  <Card.Meta>May trip</Card.Meta>
+                  <Card.Description>
+                    Epic, yet friendly Left straight out from accomadation with plenty of other breaks nearby
+                  </Card.Description>
+                </Card.Content>
+              </Card>
+              {this.renderCards()}
+            </Grid.Column>
 
             <Grid.Column width={6}>
               <ContributeForm address={this.props.address} />
